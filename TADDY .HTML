@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love - Teddy Day 🧸</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px 35px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: shimmer 6s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, 30px) rotate(180deg); }
+        }
+
+        .teddy-container {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .teddy {
+            font-size: 150px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .teddy:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-25px) rotate(5deg); }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            animation: heartFloat 4s ease-in-out infinite;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 30%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 50%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 70%; animation-delay: 1.5s; }
+        .heart:nth-child(5) { left: 90%; animation-delay: 0.5s; }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-600px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .content {
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .message {
+            font-size: 19px;
+            line-height: 1.9;
+            margin-bottom: 22px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            font-weight: 300;
+        }
+
+        .gujarati {
+            font-size: 21px;
+            font-style: italic;
+            margin: 28px 0;
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+            margin: 32px 0;
+        }
+
+        .signature {
+            margin-top: 40px;
+            font-size: 24px;
+            font-weight: 600;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 17px;
+            margin-top: 10px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .pulse-heart {
+            display: inline-block;
+            animation: pulse 1.5s ease-in-out infinite;
+            font-size: 28px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @media (max-width: 480px) {
+            .title { font-size: 28px; }
+            .message { font-size: 17px; }
+            .gujarati { font-size: 19px; padding: 18px; }
+            .teddy { font-size: 120px; }
+            .card { padding: 40px 25px; }
+        }
+
+        .location {
+            font-size: 15px;
+            opacity: 0.85;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .special-note {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 30px 0;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts">
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+        <div class="heart">💕</div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="teddy-container">
+                <div class="teddy">🧸</div>
+            </div>
+
+            <div class="content">
+                <h1 class="title">Happy Teddy Day, My Beautiful Wife</h1>
+                
+                <p class="message">
+                    FROM KISHAN MANIYA
+                </p>
+
+                <div class="special-note">
+                    આ teddy bear જેવો જ મારો પ્રેમ પણ છે — મોટો, નરમ, અને હંમેશા તમને આલિંગનમાં લઈને રાખવા તૈયાર! 💝
+                </div>
+
+                <div class="divider"></div>
+
+                <p class="message">
+                    Germany and India — thousands of miles separate us, but my love wraps around you like the biggest, warmest teddy bear hug you've ever felt.
+                </p>
+
+                <div class="gujarati">
+                    "આ મોટું teddy મારા મોટા પ્રેમની નિશાની છે. દૂર હોવા છતાં, મારા હૃદયમાં તમે હંમેશા સૌથી નજીક છો."
+                </div>
+
+                <p class="message">
+                    This teddy is my promise to you — a big, soft, cuddly reminder that no distance can ever shrink the size of my love for you. It's as big as the sky, as endless as the ocean, and as warm as a thousand hugs.
+                </p>
+
+                <div class="divider"></div>
+
+                <p class="message">
+                    જ્યારે રાત્રે તમે એકલા અનુભવો, આ teddy ને યાદ કરજો. જ્યારે તમને કોઈની જરૂર હોય, આ teddy મારા આલિંગનનું પ્રતિનિધિત્વ કરે છે.
+                </p>
+
+                <div class="special-note">
+                    તમે મારી પત્ની, મારી શ્રેષ્ઠ મિત્ર, અને મારું બધું જ છો. આ teddy જેટલું મોટું હોય તેટલું મારું પ્રેમ વધારે મોટું છે! 🧸💕
+                </div>
+
+                <p class="message">
+                    Every stitch in this virtual teddy represents a moment we've shared, a laugh we've had, a dream we've built together. You are my forever, my always, my everything.
+                </p>
+
+                <div class="divider"></div>
+
+                <p class="message">
+                    Hold this big teddy close to your heart, just like I hold you in mine — always and forever.
+                </p>
+
+                <div class="signature">
+                    Forever Yours <span class="pulse-heart">❤️</span><br>
+                    <span class="subtitle">Your Husband who loves you more than words</span>
+                    <div class="location">From India 🇮🇳 with endless love to Germany 🇩🇪</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const floatingHearts = document.querySelector('.floating-hearts');
+        
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['💕', '💖', '💗', '💝', '🧸'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+            heart.style.fontSize = (25 + Math.random() * 20) + 'px';
+            floatingHearts.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 5000);
+        }, 600);
+
+        const teddy = document.querySelector('.teddy');
+        teddy.addEventListener('click', () => {
+            teddy.style.transform = 'scale(1.3) rotate(15deg)';
+            setTimeout(() => {
+                teddy.style.transform = '';
+            }, 300);
+            
+            for(let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💕';
+                    heart.style.position = 'fixed';
+                    heart.style.left = (Math.random() * 100) + '%';
+                    heart.style.top = '50%';
+                    heart.style.fontSize = '40px';
+                    heart.style.animation = 'heartFloat 2s ease-out';
+                    heart.style.zIndex = '1000';
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 2000);
+                }, i * 100);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.card');
+            setTimeout(() => {
+                card.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                }, 500);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
